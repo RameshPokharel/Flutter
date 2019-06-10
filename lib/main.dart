@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 
+import 'SampleDart.dart';
+
 void main() {
-  runApp(SampleApp());
+  runApp(SampleDart());
 }
 
 class SampleApp extends StatelessWidget {
