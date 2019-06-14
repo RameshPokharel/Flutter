@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app/route/FirstRoute.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 
-import 'SampleDart.dart';
+import 'listView/RandomWords.dart';
 
 void main() {
-  runApp(SampleDart());
+  runApp(SampleApp());
 }
 
 class SampleApp extends StatelessWidget {
@@ -16,7 +17,7 @@ class SampleApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: myApp(),
+      home: RandomWords(),
     );
   }
 }

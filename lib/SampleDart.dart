@@ -1,6 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+import 'FavoriteWidget.dart';
+
 class SampleDart extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -33,11 +35,7 @@ class SampleDart extends StatelessWidget {
             ),
           ),
           /*3*/
-          Icon(
-            Icons.star,
-            color: Colors.red[500],
-          ),
-          Text('41'),
+          FavoriteWidget(),
         ],
       ),
     );
