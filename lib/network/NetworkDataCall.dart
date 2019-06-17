@@ -5,10 +5,10 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:http/http.dart';
 
-class NetworkCall extends StatelessWidget {
+class NetworkDataCall extends StatelessWidget {
   final Future<Post> post;
 
-  NetworkCall({Key key, this.post}) : super(key: key);
+  NetworkDataCall({Key key, this.post}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -33,7 +33,8 @@ class NetworkCall extends StatelessWidget {
       ),
       floatingActionButton: FloatingActionButton(
           onPressed: () {
-            fetchData();
+            //  fetchData();
+            Navigator.pushNamed(context, '/networkPhoto');
           },
           child: Icon(Icons.add)),
     );
