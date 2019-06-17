@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app/route/FirstRoute.dart';
+import 'package:flutter_app/route/SecondRoute.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 
 import 'listView/RandomWords.dart';
@@ -17,7 +18,18 @@ class SampleApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: RandomWords(),
+
+      // Start the app with the "/" named route. In this case, the app starts
+      // on the FirstScreen widget.
+      initialRoute: '/',
+      routes: {
+        // When navigating to the "/" route, build the FirstScreen widget.
+        '/': (context) => FirstRoute(),
+        // When navigating to the "/second" route, build the SecondScreen widget.
+        '/second': (context) => SecondRoute("Hello Hello"),
+      },
+
+    //  home: RandomWords(),
     );
   }
 }

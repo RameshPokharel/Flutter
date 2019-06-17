@@ -1,8 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-import 'SecondRoute.dart';
-
 class FirstRoute extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -14,13 +12,27 @@ class FirstRoute extends StatelessWidget {
         child: RaisedButton(
           child: Text('Open route'),
           onPressed: () {
-            Navigator.push(
+            //for simple route
+            /* Navigator.push(
               context,
               MaterialPageRoute(builder: (context) => SecondRoute()),
             );
+*/
+            //for named route
+            //    Navigator.pushNamed(context, '/second');
+
+            User user = new User(name: 'Ramesh', age: 18);
+            Navigator.pushNamed(context, '/second', arguments: user);
           },
         ),
       ),
     );
   }
+}
+
+class User {
+  final String name;
+  final int age;
+
+  User({this.name, this.age});
 }
