@@ -17,6 +17,7 @@ class PictureRequest extends State<NetworkPictureCall> {
       appBar: AppBar(
         title: Text("Pictures"),
       ),
+      backgroundColor: Colors.black26,
       body: FutureBuilder<AllItemResponse>(
         future: fetchPhotos(http.Client()),
         builder: (context, snapshot) {
@@ -24,13 +25,13 @@ class PictureRequest extends State<NetworkPictureCall> {
 
           if (snapshot.hasData) {
             List<ImageModel> models = List();
-            List<DataModel> d=snapshot.data.data;
-            d.forEach((k) =>models.add(k.images[0]) );
+            List<DataModel> d = snapshot.data.data;
+            d.forEach((k) => models.add(k.images[0]));
             return PhotosList(photos: models);
           } else {
             return Center(child: CircularProgressIndicator());
           }
-          },
+        },
       ),
     );
   }
@@ -50,7 +51,7 @@ class AllItemResponse {
   factory AllItemResponse.fromJson(Map<String, dynamic> json) {
     var itemData = json['data'] as List;
     List<DataModel> imagesList =
-        itemData.map((i) => DataModel.fromJson(i)).toList();
+    itemData.map((i) => DataModel.fromJson(i)).toList();
     return AllItemResponse(
       status: json['status'] as String,
       data: imagesList,
@@ -91,7 +92,7 @@ class DataModel {
   factory DataModel.fromJson(Map<String, dynamic> json) {
     var itemData = json['images'] as List;
     List<ImageModel> imagesList =
-        itemData.map((i) => ImageModel.fromJson(i)).toList();
+    itemData.map((i) => ImageModel.fromJson(i)).toList();
     return DataModel(
       images: imagesList,
     );
@@ -103,7 +104,7 @@ Future<AllItemResponse> fetchPhotos(http.Client client) async {
     'http://ecommerce.3callistos.com/api/v1/items',
     headers: {
       "X-APP-TOKEN":
-          "ede7353f371663de51accb482e11670b930da7d90b3c4703261f66255149347a5a97e",
+      "ede7353f371663de51accb482e11670b930da7d90b3c4703261f66255149347a5a97e",
       "provider": "appusers"
     },
   );
@@ -125,8 +126,12 @@ class PhotosList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GridView.builder(
+      padding: EdgeInsets.all(4.0),
       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-        crossAxisCount: 2,
+          crossAxisCount: 2,
+          mainAxisSpacing: 4,
+          childAspectRatio: 1.0,
+          crossAxisSpacing: 4
       ),
       itemCount: photos.length,
       itemBuilder: (context, index) {
