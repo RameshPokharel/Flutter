@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app/route/FirstRoute.dart';
+import 'package:flutter_app/route/NetworkCall.dart';
 import 'package:flutter_app/route/SecondRoute.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 
@@ -27,6 +28,7 @@ class SampleApp extends StatelessWidget {
         '/': (context) => FirstRoute(),
         // When navigating to the "/second" route, build the SecondScreen widget.
         '/second': (context) => SecondRoute("Hello Hello"),
+        '/network': (context) => NetworkCall(post: fetchPost()),
       },
 
     //  home: RandomWords(),

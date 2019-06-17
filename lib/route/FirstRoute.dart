@@ -10,21 +10,30 @@ class FirstRoute extends StatelessWidget {
         ),
         body: Builder(
           builder: (context) => Center(
-                child: RaisedButton(
-                  child: Text('Open route'),
-                  onPressed: () {
-                    //for simple route
-                    /* Navigator.push(
+                  child: Column(
+                children: <Widget>[
+                  RaisedButton(
+                    child: Text('Open route'),
+                    onPressed: () {
+                      //for simple route
+                      /* Navigator.push(
               context,
               MaterialPageRoute(builder: (context) => SecondRoute()),
             );
 */
-                    //for named route
-                    //    Navigator.pushNamed(context, '/second');
-                    _navigateAndDisplaySelection(context);
-                  },
-                ),
-              ),
+                      //for named route
+                      //    Navigator.pushNamed(context, '/second');
+                      _navigateAndDisplaySelection(context);
+                    },
+                  ),
+                  RaisedButton(
+                    child: Text('Open Network call'),
+                    onPressed: () {
+                      Navigator.pushNamed(context, '/network');
+                    },
+                  )
+                ],
+              )),
         ));
   }
 
