@@ -5,28 +5,43 @@ class FirstRoute extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('First Route'),
-      ),
-      body: Center(
-        child: RaisedButton(
-          child: Text('Open route'),
-          onPressed: () {
-            //for simple route
-            /* Navigator.push(
+        appBar: AppBar(
+          title: Text('First Route'),
+        ),
+        body: Builder(
+          builder: (context) => Center(
+                child: RaisedButton(
+                  child: Text('Open route'),
+                  onPressed: () {
+                    //for simple route
+                    /* Navigator.push(
               context,
               MaterialPageRoute(builder: (context) => SecondRoute()),
             );
 */
-            //for named route
-            //    Navigator.pushNamed(context, '/second');
+                    //for named route
+                    //    Navigator.pushNamed(context, '/second');
+                    _navigateAndDisplaySelection(context);
+                  },
+                ),
+              ),
+        ));
+  }
 
-            User user = new User(name: 'Ramesh', age: 18);
-            Navigator.pushNamed(context, '/second', arguments: user);
-          },
-        ),
-      ),
-    );
+  // A method that launches the SelectionScreen and awaits the result from
+  // Navigator.pop.
+  _navigateAndDisplaySelection(BuildContext context) async {
+    // Navigator.push returns a Future that completes after calling
+    // Navigator.pop on the Selection Screen.
+    User user = new User(name: 'Ramesh', age: 18);
+    final result =
+        await Navigator.pushNamed(context, '/second', arguments: user);
+
+    // After the Selection Screen returns a result, hide any previous snackbars
+    // and show the new result.
+    Scaffold.of(context).showSnackBar(new SnackBar(
+      content: new Text('$result'),
+    ));
   }
 }
 

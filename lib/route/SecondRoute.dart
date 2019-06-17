@@ -18,14 +18,14 @@ class SecondRoute extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text('${this.user.name}'),
+        title: Text('${this.name}'),
       ),
       body: Center(
         child: RaisedButton(
           onPressed: () {
             // Navigate back to the first screen by popping the current route
             // off the stack.
-            Navigator.pop(context);
+            Navigator.pop(context," set Result as start activity for result in android ");
           },
           child: Text('Go back!'),
         ),
