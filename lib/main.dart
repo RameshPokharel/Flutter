@@ -4,6 +4,7 @@ import 'package:flutter_app/network/NetworkDataCall.dart';
 import 'package:flutter_app/route/SecondRoute.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 
+import 'LoginPage.dart';
 import 'listView/RandomWords.dart';
 import 'network/NetworkPictureCall.dart';
 
@@ -31,6 +32,7 @@ class SampleApp extends StatelessWidget {
         '/second': (context) => SecondRoute("Hello Hello"),
         '/network': (context) => NetworkDataCall(post: fetchPost()),
         '/networkPhoto': (context) => NetworkPictureCall(),
+        '/login':(context)=> LoginPage(),
       },
 
     //  home: RandomWords(),
