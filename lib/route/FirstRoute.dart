@@ -5,45 +5,114 @@ class FirstRoute extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('First Route'),
-      ),
-      body: Builder(
-          builder: (context) =>
-              Center(
-                child: Column(
-                    children: <Widget>[
-                RaisedButton(
-                child: Text('Open route'),
-                onPressed: () {
-                  //for simple route
-                  /* Navigator.push(
-              context,
-              MaterialPageRoute(builder: (context) => SecondRoute()),
-            );
-*/
-                  //for named route
-                  //    Navigator.pushNamed(context, '/second');
-                  _navigateAndDisplaySelection(context);
-                },
-              ),
-          RaisedButton(
-            child: Text('Open Network call'),
-            onPressed: () {
-              Navigator.pushNamed(context, '/network');
-            },
-          ),
-          RaisedButton(
-          child: Text('Open Login page'),
-      onPressed: () {
-        Navigator.pushNamed(context, '/login');
-      },
-    )],
-    )
-    )
-    ,
-    )
-    );
+        appBar: AppBar(
+          title: Text('First Route'),
+        ),
+        body: Builder(
+          builder: (context) => Center(
+                  child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  Padding(
+                    padding: const EdgeInsets.all(10),
+                    child: Container(
+                      alignment: Alignment.center,
+                      width: double.infinity,
+                      height: 55.0,
+                      decoration: BoxDecoration(
+                          color: Colors.red,
+                          borderRadius: BorderRadius.circular(10.0)),
+                      child: MaterialButton(
+                        onPressed: () {
+                          _navigateAndDisplaySelection(context);
+                        },
+                        child: Row(
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: <Widget>[
+                            Flexible(
+                                child: Text(
+                              "Open route",
+                              style: TextStyle(
+                                  color: Colors.white, fontSize: 13.0),
+                            )),
+                          ],
+                        ),
+                        /* GestureDetector(
+                            onTap: () {},
+                            child: Container(
+                              alignment: Alignment.center,
+                              height: 55.0,
+                              child: Text("Google",
+                                  style: TextStyle(
+                                      color: Colors.white, fontSize: 17.0)),
+                              decoration: BoxDecoration(
+                                  color: Colors.red,
+                                  borderRadius: BorderRadius.circular(10.0)),
+                            ),
+                          )*/
+                      ),
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(10),
+                    child: Container(
+                      alignment: Alignment.center,
+                      width: double.infinity,
+                      height: 55.0,
+                      decoration: BoxDecoration(
+                          color: Colors.red,
+                          borderRadius: BorderRadius.circular(10.0)),
+                      child: MaterialButton(
+                        onPressed: () {
+                          Navigator.pushNamed(context, '/network');
+                        },
+                        child: Row(
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: <Widget>[
+                            Flexible(
+                                child: Text(
+                              "Open Network call",
+                              style: TextStyle(
+                                  color: Colors.white, fontSize: 13.0),
+                            )),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(10),
+                    child: Container(
+                      alignment: Alignment.center,
+                      width: double.infinity,
+                      height: 55.0,
+                      decoration: BoxDecoration(
+                          color: Colors.red,
+                          borderRadius: BorderRadius.circular(10.0)),
+                      child: MaterialButton(
+                        onPressed: () {
+                          Navigator.pushNamed(context, '/login');
+                        },
+                        child: Row(
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: <Widget>[
+                            Flexible(
+                                child: Text(
+                              "Open Login page",
+                              style: TextStyle(
+                                  color: Colors.white, fontSize: 13.0),
+                            )),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
+              )),
+        ));
   }
 
   // A method that launches the SelectionScreen and awaits the result from
@@ -53,7 +122,7 @@ class FirstRoute extends StatelessWidget {
     // Navigator.pop on the Selection Screen.
     User user = new User(name: 'Ramesh', age: 18);
     final result =
-    await Navigator.pushNamed(context, '/second', arguments: user);
+        await Navigator.pushNamed(context, '/second', arguments: user);
 
     // After the Selection Screen returns a result, hide any previous snackbars
     // and show the new result.
