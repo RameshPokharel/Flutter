@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_app/route/FirstRoute.dart';
+import 'package:flutter_app/ui/screens/Home.dart';
+import 'package:flutter_app/ui/screens/LoginPage.dart';
 import 'package:flutter_app/network/NetworkDataCall.dart';
+import 'package:flutter_app/route/FirstRoute.dart';
 import 'package:flutter_app/route/SecondRoute.dart';
+import 'package:flutter_app/ui/theme.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 
-import 'LoginPage.dart';
-import 'listView/RandomWords.dart';
 import 'network/NetworkPictureCall.dart';
 
 void main() {
@@ -18,9 +19,10 @@ class SampleApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Sample App',
-      theme: ThemeData(
+      theme: /*ThemeData(
         primarySwatch: Colors.blue,
-      ),
+      )*/
+          buildTheme(),
 
       // Start the app with the "/" named route. In this case, the app starts
       // on the FirstScreen widget.
@@ -32,10 +34,11 @@ class SampleApp extends StatelessWidget {
         '/second': (context) => SecondRoute("Hello Hello"),
         '/network': (context) => NetworkDataCall(post: fetchPost()),
         '/networkPhoto': (context) => NetworkPictureCall(),
-        '/login':(context)=> LoginPage(),
+        '/login': (context) => LoginPage(),
+        '/home': (context) => HomeScreen(),
       },
 
-    //  home: RandomWords(),
+      //  home: RandomWords(),
     );
   }
 }
