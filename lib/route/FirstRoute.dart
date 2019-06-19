@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class FirstRoute extends StatelessWidget {
   @override
@@ -93,7 +94,7 @@ class FirstRoute extends StatelessWidget {
                           borderRadius: BorderRadius.circular(10.0)),
                       child: MaterialButton(
                         onPressed: () {
-                          Navigator.pushNamed(context, '/login');
+                          _checkLog(context);
                         },
                         child: Row(
                           crossAxisAlignment: CrossAxisAlignment.center,
@@ -101,7 +102,7 @@ class FirstRoute extends StatelessWidget {
                           children: <Widget>[
                             Flexible(
                                 child: Text(
-                              "Open Login page",
+                              "Open Home",
                               style: TextStyle(
                                   color: Colors.white, fontSize: 13.0),
                             )),
@@ -113,6 +114,15 @@ class FirstRoute extends StatelessWidget {
                 ],
               )),
         ));
+  }
+
+  _checkLog(BuildContext context) async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    bool isLoged = (prefs.getBool('isLog') ?? false);
+    if (!isLoged)
+      Navigator.pushNamed(context, '/login');
+    else
+      Navigator.pushNamed(context, '/home');
   }
 
   // A method that launches the SelectionScreen and awaits the result from

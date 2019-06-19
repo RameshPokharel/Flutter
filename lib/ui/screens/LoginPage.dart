@@ -1,7 +1,55 @@
+import 'dart:convert';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:google_sign_in/google_sign_in.dart';
+import 'package:http/http.dart' as http;
+import 'package:shared_preferences/shared_preferences.dart';
 
-class LoginPage extends StatelessWidget {
+class LoginPage extends StatefulWidget {
+  @override
+  State<StatefulWidget> createState() => _LoginState();
+}
+
+class _LoginState extends State<LoginPage> {
+  String _contactText;
+
+  GoogleSignIn _googleSignIn = new GoogleSignIn(
+    scopes: [
+      'email',
+      'https://www.googleapis.com/auth/contacts.readonly',
+    ],
+  );
+
+  checkLog() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    await prefs.setBool('isLog', true);
+    Navigator.pushNamed(context, '/home');
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    _googleSignIn.onCurrentUserChanged.listen((GoogleSignInAccount account) {
+      if (account != null) {
+        checkLog();
+      }
+    });
+    _googleSignIn.signInSilently();
+  }
+
+  Future<void> _handleSignIn() async {
+    try {
+      await _googleSignIn.signIn();
+    } catch (error) {
+      print(error);
+    }
+  }
+
+  Future<void> _handleSignOut() async {
+    _googleSignIn.disconnect();
+  }
+
   @override
   Widget build(BuildContext context) {
     BoxDecoration _buildBackground() {
@@ -132,8 +180,9 @@ class LoginPage extends StatelessWidget {
                                 borderRadius: BorderRadius.circular(10.0)),
                             child: MaterialButton(
                               onPressed: () {
-                                Navigator.of(context).pushReplacementNamed('/home');
-
+                                _handleSignIn();
+                                /*  Navigator.of(context)
+                                    .pushReplacementNamed('/home');*/
                               },
                               child: Row(
                                 crossAxisAlignment: CrossAxisAlignment.center,
@@ -148,6 +197,7 @@ class LoginPage extends StatelessWidget {
                                 ],
                               ),
                             ),
+
                             /* GestureDetector(
                             onTap: () {},
                             child: Container(
@@ -164,6 +214,7 @@ class LoginPage extends StatelessWidget {
                           ),
                         ),
                       ),
+                      // _buildBody()
                     ],
                   )
                 ],

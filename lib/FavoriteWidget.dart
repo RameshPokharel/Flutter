@@ -8,6 +8,7 @@ class FavoriteWidget extends StatefulWidget {
 
 class _FavoriteWidgetState extends State<FavoriteWidget> {
 
+
   bool _isFav = true;
   int _favcount = 41;
 
