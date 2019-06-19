@@ -105,6 +105,7 @@ class HomeScreenState extends State<HomeScreen> {
                     )),
               ),
               ListTile(
+                leading: new Icon(Icons.favorite),
                 title: Text('Item 1'),
                 onTap: () {
                   // Update the state of the app.
@@ -112,6 +113,7 @@ class HomeScreenState extends State<HomeScreen> {
                 },
               ),
               ListTile(
+                leading: new Icon(Icons.satellite),
                 title: Text('Item 2'),
                 onTap: () {
                   // Update the state of the app.
