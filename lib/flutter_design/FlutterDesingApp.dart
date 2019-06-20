@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_app/flutter_design/CityCard.dart';
 import 'package:flutter_app/flutter_design/HomeScreenTopPart.dart';
 
+import 'CustomAppbar.dart';
+
 ThemeData appTheme = ThemeData(
   primaryColor: Colors.orange,
 );
@@ -12,6 +14,7 @@ class FlutterDesignApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      bottomNavigationBar: CustomAppbar(),
       body: Column(
         children: <Widget>[HomeScreenTopPart(), homeScreenBottomPart],
       ),
@@ -49,9 +52,9 @@ var homeScreenBottomPart = Column(
 );
 List<CityCard> cityCards = [
   CityCard("assets/images/splash.jpg", "Kathmandu", "Apr 2018", "345", "456",
-      "456"),
+      "45%"),
   CityCard(
-      "assets/images/splash.jpg", "Butwal", "Mar 2018", "678", "908", "4577"),
+      "assets/images/splash.jpg", "Butwal", "Mar 2018", "678", "908", "4%"),
   CityCard(
-      "assets/images/profile.jpg", "Bhaira", "jun 2017", "463", "890", "5654"),
+      "assets/images/profile.jpg", "Bhaira", "jun 2017", "463", "890", "56%"),
 ];

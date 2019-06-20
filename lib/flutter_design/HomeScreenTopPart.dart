@@ -38,7 +38,7 @@ class _HomeScreenTopPostScreen extends State<HomeScreenTopPart> {
         ClipPath(
           clipper: CustomShapeClipper(),
           child: Container(
-            height: 400,
+            height: 370,
             decoration: BoxDecoration(
                 gradient: LinearGradient(colors: [
                   secondColor,
