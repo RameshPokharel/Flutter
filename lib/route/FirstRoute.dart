@@ -94,6 +94,34 @@ class FirstRoute extends StatelessWidget {
                           borderRadius: BorderRadius.circular(10.0)),
                       child: MaterialButton(
                         onPressed: () {
+                          Navigator.pushNamed(context, '/design');
+                        },
+                        child: Row(
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: <Widget>[
+                            Flexible(
+                                child: Text(
+                              "Open Design",
+                              style: TextStyle(
+                                  color: Colors.white, fontSize: 13.0),
+                            )),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(10),
+                    child: Container(
+                      alignment: Alignment.center,
+                      width: double.infinity,
+                      height: 55.0,
+                      decoration: BoxDecoration(
+                          color: Colors.red,
+                          borderRadius: BorderRadius.circular(10.0)),
+                      child: MaterialButton(
+                        onPressed: () {
                           _checkLog(context);
                         },
                         child: Row(

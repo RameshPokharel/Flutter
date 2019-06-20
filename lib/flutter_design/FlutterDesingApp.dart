@@ -48,10 +48,10 @@ var homeScreenBottomPart = Column(
   ],
 );
 List<CityCard> cityCards = [
-  CityCard("assets/images/profile.jpg", "Kathmandu", "Apr 2018", "345", "456",
+  CityCard("assets/images/splash.jpg", "Kathmandu", "Apr 2018", "345", "456",
       "456"),
   CityCard(
-      "assets/images/profile.jpg", "Butwal", "Mar 2018", "678", "908", "4577"),
+      "assets/images/splash.jpg", "Butwal", "Mar 2018", "678", "908", "4577"),
   CityCard(
       "assets/images/profile.jpg", "Bhaira", "jun 2017", "463", "890", "5654"),
 ];

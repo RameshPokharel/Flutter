@@ -35,8 +35,8 @@ class CityCard extends StatelessWidget {
                     decoration: BoxDecoration(
                         gradient: LinearGradient(
                             colors: [
-                          Colors.black,
-                          Colors.black.withOpacity(0.1)
+                          Colors.black87,
+                          Colors.black.withOpacity(0)
                         ],
                             begin: Alignment.bottomCenter,
                             end: Alignment.topCenter)),
