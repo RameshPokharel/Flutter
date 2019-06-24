@@ -36,7 +36,7 @@ ThemeData buildTheme() {
   return base.copyWith(
     textTheme: _buildTextTheme(base.textTheme),
     // New code:
-    primaryColor: Colors.blue,//const Color(0xFF1E88E5),
+    primaryColor: Color(0xFFF47D15),//const Color(0xFF1E88E5),
     indicatorColor: Colors.lightBlueAccent,
     scaffoldBackgroundColor: const Color(0xFFF5F5F5),
     accentColor: Colors.blueAccent,

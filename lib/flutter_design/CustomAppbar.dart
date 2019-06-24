@@ -52,7 +52,7 @@ class _CustomAppbarState extends State<CustomAppbar> {
   @override
   Widget build(BuildContext context) {
     return Material(
-      elevation: 10,
+      elevation: 15,
       child: BottomNavigationBar(
         items: widget.list,
         type: BottomNavigationBarType.fixed,

@@ -1,23 +1,15 @@
-
-
 import 'package:flutter/material.dart';
-
 import 'package:flutter_app/flutter_design/ChoiceChip.dart';
 import 'package:flutter_app/flutter_design/CustomShapeClipper.dart';
-
-
-
-
 
 Color firstColor = Color(0xFFF47D15);
 Color secondColor = Color(0xFFEF272C);
 List<String> locations = ["Gulmi(Nepal)", "New delhi( India)"];
 
 const TextStyle dropDownLableStyle =
-TextStyle(color: Colors.white, fontSize: 14.0);
+    TextStyle(color: Colors.white, fontSize: 14.0);
 const TextStyle dropDownMenuItemStyle =
-TextStyle(color: Colors.black, fontSize: 16.0);
-
+    TextStyle(color: Colors.black, fontSize: 16.0);
 
 ThemeData appTheme = ThemeData(
   primaryColor: Colors.orange,
@@ -27,6 +19,7 @@ class HomeScreenTopPart extends StatefulWidget {
   @override
   State<StatefulWidget> createState() => _HomeScreenTopPostScreen();
 }
+
 class _HomeScreenTopPostScreen extends State<HomeScreenTopPart> {
   var selectedIndex = 0;
   bool isFlightSelected = true;
@@ -41,9 +34,9 @@ class _HomeScreenTopPostScreen extends State<HomeScreenTopPart> {
             height: 370,
             decoration: BoxDecoration(
                 gradient: LinearGradient(colors: [
-                  secondColor,
-                  firstColor,
-                ])),
+              secondColor,
+              firstColor,
+            ])),
             child: Column(
               children: <Widget>[
                 SizedBox(
@@ -67,22 +60,22 @@ class _HomeScreenTopPostScreen extends State<HomeScreenTopPart> {
                           });
                         },
                         itemBuilder: (BuildContext context) =>
-                        <PopupMenuItem<int>>[
-                          PopupMenuItem(
-                            child: Text(
-                              locations[0],
-                              style: dropDownMenuItemStyle,
-                            ),
-                            value: 0,
-                          ),
-                          PopupMenuItem(
-                            child: Text(
-                              locations[1],
-                              style: dropDownMenuItemStyle,
-                            ),
-                            value: 1,
-                          )
-                        ],
+                            <PopupMenuItem<int>>[
+                              PopupMenuItem(
+                                child: Text(
+                                  locations[0],
+                                  style: dropDownMenuItemStyle,
+                                ),
+                                value: 0,
+                              ),
+                              PopupMenuItem(
+                                child: Text(
+                                  locations[1],
+                                  style: dropDownMenuItemStyle,
+                                ),
+                                value: 1,
+                              )
+                            ],
                         child: Row(
                           children: <Widget>[
                             Text(
@@ -133,9 +126,14 @@ class _HomeScreenTopPostScreen extends State<HomeScreenTopPart> {
                           suffix: Material(
                             elevation: 2,
                             borderRadius: BorderRadius.all(Radius.circular(30)),
-                            child: Icon(
-                              Icons.search,
-                              color: Colors.black,
+                            child: InkWell(
+                              onTap: () {
+                                Navigator.pushNamed(context, "/flight");
+                              },
+                              child: Icon(
+                                Icons.search,
+                                color: Colors.black,
+                              ),
                             ),
                           )),
                     ),

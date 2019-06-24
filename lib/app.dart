@@ -6,6 +6,7 @@ import 'package:flutter_app/ui/screens/Home.dart';
 import 'package:flutter_app/ui/screens/LoginPage.dart';
 import 'package:flutter_app/ui/theme.dart';
 
+import 'flutter_design/FlightList.dart';
 import 'flutter_design/FlutterDesingApp.dart';
 import 'network/NetworkDataCall.dart';
 import 'network/NetworkPictureCall.dart';
@@ -33,6 +34,7 @@ class RecipesApp extends StatelessWidget {
         '/login': (context) => LoginPage(),
         '/home': (context) => HomeScreen(),
         '/design': (context) => FlutterDesignApp(),
+        '/flight': (context) => FlightList(),
       },
     );
   }
